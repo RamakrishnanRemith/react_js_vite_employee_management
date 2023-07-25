@@ -1,0 +1,17 @@
+.loginPage {
+    background: url('images/backgroud.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 120%;
+}
+.loginForm {
+    background-color: rgba(1, 32, 93, 0.6);
+    color: white;
+}
+.manage{
+    float: right;
+    
+}
+.manageicon{
+    float:left;
+
+}

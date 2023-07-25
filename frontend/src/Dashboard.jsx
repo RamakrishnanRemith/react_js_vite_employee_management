@@ -5,7 +5,30 @@ import axios from 'axios'
 import './style.css'
 
 function Dashboard() {
-	
+	const navigate = useNavigate()
+	axios.defaults.withCredentials = true;
+	useEffect(()=>{
+		axios.get('http://localhost:8081/dashboard')
+		.then(res => {
+			if(res.data.Status === "Success") {
+				if(res.data.role === "admin") {
+					navigate('/');
+				} else {
+					const id = res.data.id;
+					navigate('/employeedetail/'+id)
+				}
+			} else {
+				navigate('/Start')
+			}
+		})
+	}, [])
+
+	const handleLogout = () => {
+		axios.get('http://localhost:8081/logout')
+		.then(res => {
+			navigate('/Start')
+		}).catch(err => console.log(err));
+	}
 	return (
 		<div className="container-fluid">
 			<div className="row flex-nowrap vw-100 vh-100">
@@ -27,14 +50,14 @@ function Dashboard() {
 								<Link to="profile" className="nav-link px-0 align-middle text-white">
 									<i className="fs-4 bi-person"></i> <span className="ms-1 d-none d-sm-inline">Profile</span></Link>
 							</li>
-							<li>
+							<li onClick={handleLogout}>
 								<a href="#" className="nav-link px-0 align-middle text-white">
 									<i className="fs-4 bi-power"></i> <span className="ms-1 d-none d-sm-inline">Logout</span></a>
 							</li>
 						</ul>
 					</div>
 				</div>
-				<div class="col p-0 m-0">
+				<div className="col p-0 m-0">
 					<div className='p-2 d-flex justify-content-center shadow'>
 						<h4>Employee Management System</h4>						
 					</div>

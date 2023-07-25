@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 
 function Employee() {
   const [data, setData] = useState([])
-
+  
+ 
   useEffect(()=> {
     axios.get('http://localhost:8081/getEmployee')
     .then(res => {
@@ -21,7 +22,7 @@ function Employee() {
     axios.delete('http://localhost:8081/delete/'+id)
     .then(res => {
       if(res.data.Status === "Success") {
-        window.location.reload(true);
+        setData(res.data.Result);
       } else {
         alert("Error")
       }

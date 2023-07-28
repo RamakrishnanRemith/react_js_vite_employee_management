@@ -107,6 +107,57 @@ app.put('/update/:id', (req, res) => {
     });
 });
 
+
+
+import bodyParser from 'body-parser';
+import nodemailer from 'nodemailer';
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+// Create a Nodemailer transporter
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'asir4937@gmail.com',
+    pass: 'yavjzgbvqduyhylw'
+  }
+});
+
+// Define a route to handle the form submission and send the email
+app.post('/send_email', (req, res) => {
+  const { name, email, comments } = req.body;
+
+  // Create the email message using HTML
+  const htmlMessage = `
+    <h2>Contact Form Submission</h2>
+    <p><strong>Name:</strong> ${name}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Comments:</strong> ${comments}</p>
+  `;
+
+  // Set up the mail options
+  const mailOptions = {
+    from: '${email}',
+    to: 'asir4937@gmail.com',
+    subject: 'Contact Form Submission',
+    html: htmlMessage
+  };
+
+  // Send the email
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.error("Error:", error);
+      res.json({ success: false });
+    } else {
+      console.log("Email sent:", info.response);
+      res.json({ success: true });
+    }
+  });
+});
+
+
 app.delete('/delete/:id', (req, res) => {
     const id = req.params.id;
     const sql = "Delete From employee WHERE id = ?";
@@ -173,6 +224,23 @@ app.post('/login', (req, res) => {
     })
 })
 
+app.post('/signup',(req, res) => {
+    console.log('Received data from frontend:', req.body);
+    
+    const sql = "INSERT INTO users (email, password) VALUES (?)";
+    const values = [       // Extract the value from the array
+      req.body.email[0],      // Extract the value from the array
+      req.body.password[0],   // Extract the value from the array
+    ];
+    con.query(sql, [values], (err, data) => {
+        if(err){
+            console.error('Database Error:', err);
+            return res.status(500).json('Error occurred while inserting data.');
+        }
+        return res.json(data);
+    })
+})
+
 app.post('/employeelogin', (req, res) => {
     const sql = "SELECT * FROM employee Where email = ?";
     con.query(sql, [req.body.email], (err, result) => {
@@ -223,6 +291,23 @@ app.post('/create',upload.single('image'), (req, res) => {
     } )
     
 })
+
+app.post('/send_email', async (req, res) => {
+    const { name, email, comments } = req.body;
+  
+    try {
+      // Call the sendEmail function with the extracted data
+      await sendEmail(name, email, comments);
+  
+      // Send a success response to the client
+      res.json({ success: true });
+    } catch (error) {
+      // If there's an error, send an error response to the client
+      console.error("Error:", error);
+      res.json({ success: false, error: "Unable to send email." });
+    }
+  });
+  
 
 app.listen(8081, ()=> {
     console.log("Running");

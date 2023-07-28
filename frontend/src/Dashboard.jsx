@@ -54,6 +54,10 @@ function Dashboard() {
 								<a href="#" className="nav-link px-0 align-middle text-white">
 									<i className="fs-4 bi-power"></i> <span className="ms-1 d-none d-sm-inline">Logout</span></a>
 							</li>
+							<li>
+								<Link to="email" className="nav-link px-0 align-middle text-white">
+									<i className="bi bi-box-arrow-right"></i> <span className="ms-1 d-none d-sm-inline">Contact us</span></Link>
+							</li>
 						</ul>
 					</div>
 				</div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './style.css'
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function Login() {
     const [values, setValues] = useState({
@@ -45,7 +45,8 @@ function Login() {
                     onChange={e => setValues({...values, password: e.target.value})}   className='form-control rounded-2' />
                 </div>
                 <button type='submit' className='btn btn-success w-100 rounded-2'> Log in</button>
-                <p>You are agree to aour terms and policies</p>                
+                <p>You are agree to aour terms and policies</p>  
+                <Link to="/signup" className="btn btn-secondary ms-2">Sign Up</Link>              
             </form>
         </div>
     </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-function Start() {
+function Empmanagement() {
     const navigate = useNavigate()
   return (
     <div className='d-flex justify-content-center align-items-center vh-100 vw-100 loginPage'>
@@ -16,4 +16,4 @@ function Start() {
   )
 }
 
-export default Start
+export default Empmanagement

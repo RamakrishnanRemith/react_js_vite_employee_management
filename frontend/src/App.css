@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+.App {
+  text-align: center;
+  padding: 2rem;
+}
+
+.map {
+  height: 500px;
+  width: 100%;
+}

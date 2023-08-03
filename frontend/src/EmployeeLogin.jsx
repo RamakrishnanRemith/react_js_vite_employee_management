@@ -29,7 +29,7 @@ function EmployeeLogin() {
     }
 
     return (
-        <div className='d-flex justify-content-center align-items-center vh-100 vw-100 loginPage'>
+        <div className='d-flex justify-content-center align-items-center vh-100 vw-100 App'>
             <div className='p-3 rounded w-25 border loginForm'>
                 <div className='text-danger'>
                     {error && error}

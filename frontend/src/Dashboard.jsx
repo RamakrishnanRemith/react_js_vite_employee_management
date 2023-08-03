@@ -26,7 +26,7 @@ function Dashboard() {
 	const handleLogout = () => {
 		axios.get('http://localhost:8081/logout')
 		.then(res => {
-			navigate('/Start')
+			navigate('/empmanagement')
 		}).catch(err => console.log(err));
 	}
 	return (

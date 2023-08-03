@@ -25,3 +25,137 @@
     height: 200px;
     border-radius: 50%;
 }
+
+.btn-secondary{
+    position: relative;
+    
+    top: 20px;
+}
+.margin{
+    margin-left: 30px;
+
+}
+
+.projectpage {
+    background: url('images/back2.jpeg');
+    background-repeat: no-repeat;
+    background-size: 100% 120%;
+}
+.heading{
+    position: relative;
+    bottom: 260px;
+    left: 190px;
+}
+
+
+  .card{
+    width: 18rem;
+  }
+  .right{
+    position: relative;
+    left: 300px;
+    bottom: 430px;
+  }
+  .right1{
+    position: relative;
+    right: 300px;
+    bottom: 854px;
+  }
+  .background{
+    background: url('images/back2.jpeg');
+  }
+/* bmi calculator */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .container {
+    box-shadow: 0px 0px 12px #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  
+  input {
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 8px 4px;
+    margin: 8px 0;
+    border-radius: 8px;
+  }
+  
+  .btn {
+    display: block;
+    width: 100%;
+    font-size: 1.2rem;
+    margin: 8px 0;
+    padding: 10px 0;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .btn-outline {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  .center {
+    text-align: center;
+    margin: 24px 0;
+  }
+  
+  p {
+    margin: 10px 0;
+  }
+  
+  .img-container {
+    text-align: center;
+  }
+  
+  .img-container img {
+    height: 200px;
+  }
+  
+  
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  .App {
+   
+    color: white;
+    background-image: linear-gradient(79deg, #3c945e, #e0ad72 48%, #5623e0);
+  }
+  .map {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+  }
+  

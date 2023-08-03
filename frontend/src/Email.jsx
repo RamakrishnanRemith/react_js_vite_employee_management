@@ -24,7 +24,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container" >
       <h2 className="text-primary mb-4">Contact Form</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
@@ -40,7 +40,7 @@ const ContactForm = () => {
           <input
             type="email"
             name="email"
-            className="form-control bg-info text-white"
+            className="form-control  text-white"
             placeholder="Email"
             onChange={(e) => setValues({ ...values, email: e.target.value })}
           />
@@ -48,13 +48,13 @@ const ContactForm = () => {
         <div className="mb-3">
           <textarea
             name="comments"
-            className="form-control bg-success text-white"
+            className="form-control text-black"
             placeholder="Send your comments"
             onChange={(e) => setValues({ ...values, comments: e.target.value })}
           ></textarea>
         </div>
 
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-success">
           Send
         </button>
       </form>
